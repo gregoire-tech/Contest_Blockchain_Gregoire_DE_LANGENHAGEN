@@ -1,8 +1,8 @@
 class Block:
     def __init__(self):
         self.unique_id = ''
-        self.hash = '00'
-        self.parent_hash = '00'
+        self.hash = '0'
+        self.parent_hash = '0'
         self.transactions = []
         
     def check_hash():
