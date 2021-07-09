@@ -7,4 +7,10 @@ def createWallet():
     saveWallet = w.save()
     print(saveWallet)
         
-createWallet()
+#createWallet()
+
+def loadWallet():
+    w = Wallet()
+    print(w.load())
+
+loadWallet()

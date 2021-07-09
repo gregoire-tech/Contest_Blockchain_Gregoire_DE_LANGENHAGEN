@@ -18,13 +18,13 @@ class Wallet:
     def addTimeStamp(self):
         self.history.append(str(datetime.datetime.now()))
         
-    def add_balance(self, nb):
-        self.balance += nb
+    def add_balance(self, amount):
+        self.balance += amount
         self.addTimeStamp()
         return self.balance
     
-    def sub_balance(self,nb):
-        self.balance -= nb
+    def sub_balance(self,amount):
+        self.balance -= amount
         self.addTimeStamp()
         return self.balance
         
@@ -33,13 +33,15 @@ class Wallet:
     
     def save(self):
         self.addTimeStamp()
-        walletObj =  {"unique_id": self.unique_id, "balance": self.balance, "history": self.history}
+        walletObj =  {"unique_id": self.unique_id, "history": {"dateTimeTransation": self.history, "balanceUpdated": self.balance, "from": "null"}}
         walletObjJson = json.dumps(walletObj)
         print(walletObjJson)
         file = open("./content/wallets/"+self.unique_id+".json", "w")
         file.write(walletObjJson)
-        print(file.read())
         file.close()
         
     def load():
-        pass
+        id = input("Entrer l'id du wallet : ")
+        file = open("./content/wallets/"+id+".json", "r")
+        print(file.read())
+        file.close()
